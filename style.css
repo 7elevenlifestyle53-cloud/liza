@@ -1,0 +1,518 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background: #09070d;
+    font-family: Arial, sans-serif;
+}
+
+.scene {
+    width: 100vw;
+    height: 100vh;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at center, #35152b 0%, #120b15 45%, #050408 100%);
+}
+
+
+/* ---------------- TITLE ---------------- */
+
+h1 {
+    position: absolute;
+
+    top: 8%;
+    left: 50%;
+
+    transform: translateX(-50%) translateY(-30px);
+
+    color: white;
+    font-size: 42px;
+    font-style: italic;
+
+    opacity: 0;
+
+    animation: titleIn 1.5s ease forwards;
+    animation-delay: 0.5s;
+
+    text-shadow: 0 0 20px #ff4f9a;
+}
+
+@keyframes titleIn {
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+
+/* ---------------- DOLL ---------------- */
+
+.doll {
+    position: absolute;
+
+    left: 50%;
+    bottom: 18%;
+
+    width: 170px;
+    height: 300px;
+
+    transform: translateX(-50%) translateY(350px);
+
+    animation:
+        dollEnter 1.8s cubic-bezier(.17,.89,.32,1.3) forwards,
+        dollBounce 2s ease-in-out infinite 2.2s;
+}
+
+@keyframes dollEnter {
+
+    to {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes dollBounce {
+
+    0%,100% {
+        margin-bottom: 0;
+    }
+
+    50% {
+        margin-bottom: 10px;
+    }
+}
+
+
+/* HEAD */
+
+.head {
+    position: absolute;
+
+    left: 30px;
+    top: 0;
+
+    width: 110px;
+    height: 100px;
+
+    background: #fff8f8;
+
+    border: 4px solid #222;
+
+    border-radius: 50%;
+
+    z-index: 3;
+}
+
+
+/* EYES */
+
+.eye {
+    position: absolute;
+
+    top: 42px;
+
+    width: 8px;
+    height: 8px;
+
+    background: #222;
+
+    border-radius: 50%;
+}
+
+.eye.left {
+    left: 30px;
+}
+
+.eye.right {
+    right: 30px;
+}
+
+
+/* BLUSH */
+
+.blush {
+    position: absolute;
+
+    color: #ff9bbd;
+
+    font-size: 18px;
+
+    top: 54px;
+}
+
+.left-blush {
+    left: 12px;
+}
+
+.right-blush {
+    right: 12px;
+}
+
+
+/* MOUTH */
+
+.mouth {
+    position: absolute;
+
+    left: 45px;
+    top: 52px;
+
+    font-size: 20px;
+
+    color: #222;
+}
+
+
+/* BODY */
+
+.body {
+    position: absolute;
+
+    left: 48px;
+    top: 85px;
+
+    width: 75px;
+    height: 120px;
+
+    background: #fff8f8;
+
+    border: 4px solid #222;
+
+    border-radius: 20px 20px 35px 35px;
+
+    z-index: 2;
+}
+
+
+/* ARMS */
+
+.arm {
+    position: absolute;
+
+    width: 65px;
+    height: 15px;
+
+    background: #fff8f8;
+
+    border: 4px solid #222;
+
+    border-radius: 20px;
+
+    top: 105px;
+
+    z-index: 1;
+}
+
+.left-arm {
+    left: 5px;
+    transform: rotate(65deg);
+}
+
+.right-arm {
+    right: -2px;
+
+    transform-origin: left center;
+
+    transform: rotate(-25deg);
+
+    animation: wave 1s ease-in-out infinite 2.7s;
+}
+
+@keyframes wave {
+
+    0%,100% {
+        transform: rotate(-25deg);
+    }
+
+    50% {
+        transform: rotate(-55deg);
+    }
+}
+
+
+/* HAND */
+
+.hand {
+    position: absolute;
+
+    right: -20px;
+    top: -18px;
+
+    font-size: 28px;
+
+    color: #ff3b7d;
+}
+
+
+/* LEGS */
+
+.leg {
+    position: absolute;
+
+    width: 25px;
+    height: 70px;
+
+    background: #fff8f8;
+
+    border: 4px solid #222;
+
+    border-radius: 15px;
+
+    top: 195px;
+}
+
+.left-leg {
+    left: 55px;
+}
+
+.right-leg {
+    left: 92px;
+}
+
+
+/* ---------------- KISS ---------------- */
+
+.kiss {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 36%;
+
+    font-size: 55px;
+
+    opacity: 0;
+
+    transform: translateX(-50%) scale(.2);
+
+    animation: flyingKiss 2.5s ease-in-out forwards;
+
+    animation-delay: 3.5s;
+
+    z-index: 10;
+}
+
+@keyframes flyingKiss {
+
+    0% {
+        opacity: 0;
+
+        left: 50%;
+        bottom: 36%;
+
+        transform: translateX(-50%) scale(.2) rotate(-20deg);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+
+        left: 75%;
+        bottom: 48%;
+
+        transform: translateX(-50%) scale(1.1) rotate(15deg);
+    }
+
+    100% {
+        opacity: 0;
+
+        left: 82%;
+        bottom: 55%;
+
+        transform: translateX(-50%) scale(.7) rotate(25deg);
+    }
+}
+
+
+/* ---------------- BIG HEART ---------------- */
+
+.big-heart {
+
+    position: absolute;
+
+    left: 75%;
+    top: 40%;
+
+    font-size: 100px;
+
+    opacity: 0;
+
+    transform: translate(-50%, -50%) scale(.1);
+
+    animation: heartAppear 1.5s ease forwards;
+
+    animation-delay: 6s;
+
+    filter: drop-shadow(0 0 25px #ff247f);
+}
+
+@keyframes heartAppear {
+
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.1);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.3);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+/* ---------------- MESSAGE ---------------- */
+
+.message {
+
+    position: absolute;
+
+    left: 75%;
+    top: 57%;
+
+    transform: translate(-50%, -50%) scale(.5);
+
+    color: white;
+
+    text-align: center;
+
+    font-size: 34px;
+
+    opacity: 0;
+
+    animation: messageIn 1.5s ease forwards;
+
+    animation-delay: 6.8s;
+
+    text-shadow: 0 0 20px #ff4f9a;
+}
+
+.message strong {
+
+    display: block;
+
+    color: #ff4f9a;
+
+    font-size: 45px;
+
+    margin-top: 10px;
+}
+
+@keyframes messageIn {
+
+    to {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+}
+
+
+/* ---------------- FLOATING HEARTS ---------------- */
+
+.floating-hearts span {
+
+    position: absolute;
+
+    bottom: -50px;
+
+    font-size: 25px;
+
+    opacity: 0;
+
+    animation: floatUp 7s linear infinite;
+}
+
+.floating-hearts span:nth-child(1) {
+    left: 15%;
+    animation-delay: 7s;
+}
+
+.floating-hearts span:nth-child(2) {
+    left: 30%;
+    animation-delay: 8s;
+}
+
+.floating-hearts span:nth-child(3) {
+    left: 50%;
+    animation-delay: 9s;
+}
+
+.floating-hearts span:nth-child(4) {
+    left: 70%;
+    animation-delay: 7.5s;
+}
+
+.floating-hearts span:nth-child(5) {
+    left: 85%;
+    animation-delay: 10s;
+}
+
+@keyframes floatUp {
+
+    0% {
+        bottom: -50px;
+        opacity: 0;
+        transform: translateX(0) scale(.5);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 110%;
+        opacity: 0;
+        transform: translateX(60px) scale(1.3) rotate(30deg);
+    }
+}
+
+
+/* ---------------- MOBILE ---------------- */
+
+@media (max-width: 700px) {
+
+    h1 {
+        font-size: 32px;
+        top: 7%;
+    }
+
+    .doll {
+        left: 32%;
+        bottom: 18%;
+        transform: translateX(-50%) translateY(350px);
+    }
+
+    .big-heart {
+        left: 72%;
+        top: 38%;
+        font-size: 65px;
+    }
+
+    .message {
+        left: 72%;
+        top: 53%;
+        font-size: 22px;
+    }
+
+    .message strong {
+        font-size: 30px;
+    }
+}
